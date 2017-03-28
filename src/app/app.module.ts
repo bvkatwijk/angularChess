@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContainerComponent } from './components/game/container/container.component';
+import { BoardComponent } from './components/game/board/board.component';
+import { TileComponent } from './components/game/tile/tile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ContainerComponent
+    ContainerComponent,
+    BoardComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,

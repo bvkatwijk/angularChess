@@ -3,6 +3,8 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { BoardComponent } from "./components/game/board/board.component";
+import { TileComponent } from "./components/game/tile/tile.component";
 
 describe('AppComponent', () => {
   var app;
@@ -14,6 +16,8 @@ describe('AppComponent', () => {
         AppComponent,
         NavbarComponent,
         ContainerComponent,
+        BoardComponent,
+        TileComponent
       ],
     }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);

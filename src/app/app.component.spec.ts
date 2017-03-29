@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PieceComponent } from './components/game/piece/piece.component';
 import { ContainerComponent } from './components/game/container/container.component';
 import { TestBed, async } from '@angular/core/testing';
@@ -14,13 +15,9 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        NavbarComponent,
-        ContainerComponent,
-        BoardComponent,
-        TileComponent,
-        PieceComponent
+        AppComponent
       ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     app = fixture.debugElement.componentInstance;

@@ -41,3 +41,7 @@
 .pawn {
     background-position-x: -510px;
 }
+
+.target {
+    background-color: red; 
+}

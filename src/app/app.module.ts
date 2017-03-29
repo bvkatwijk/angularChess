@@ -10,8 +10,7 @@ import { BoardComponent } from './components/game/board/board.component';
 import { TileComponent } from './components/game/tile/tile.component';
 import { PieceComponent } from './components/game/piece/piece.component';
 import { PlayerComponent } from './components/game/player/player.component';
-import {Ng2DragDropModule} from "ng2-drag-drop";
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +24,7 @@ import {Ng2DragDropModule} from "ng2-drag-drop";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    Ng2DragDropModule
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

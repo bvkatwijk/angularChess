@@ -6,7 +6,13 @@ import { Piece } from "./piece";
 @Component({
   selector: 'app-piece',
   templateUrl: './piece.component.html',
-  styleUrls: ['./piece.component.css']
+  styleUrls: ['./piece.component.css'],
+  host: {
+    '(dragstart)': 'onDragStart($event)',
+    '(dragleave)': 'onDragLeave($event)',
+    '(dragenter)': 'onDragEnter($event)',
+    '(drop)': 'onDrop($event)'
+  }
 })
 export class PieceComponent implements OnInit {
 
@@ -17,16 +23,31 @@ export class PieceComponent implements OnInit {
   }
 
   onItemDrop(e: any) {
-    console.log(e.nativeEvent.srcElement.className);
-    this.piece = e.dragData;
+    console.log('PieceComponent onItemDrop');
   }
 
   onDragStart(e: any) {
-    console.log('drag started');
+    console.log('PieceComponent onDragStart');
+  }
+
+  onDragEnter(e: any) {
+    console.log('PieceComponent onDragEnter');
+  }
+
+  onDragLeave(ev: any) {
+    console.log('PieceComponent onDragLeave');
+  }
+
+  onDrop(ev: any) {
+    console.log("PieceComponent onDrop");
   }
 
   removePiece() {
     this.piece = new Piece(PieceType.NONE, Color.NONE);
+  }
+
+  canDrag() {
+    return this.piece.type != PieceType.NONE;
   }
 
 }

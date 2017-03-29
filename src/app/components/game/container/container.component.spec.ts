@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PieceComponent } from '../piece/piece.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -12,11 +13,9 @@ describe('ContainerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ContainerComponent,
-        BoardComponent,
-        TileComponent,
-        PieceComponent
-      ]
+        ContainerComponent
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

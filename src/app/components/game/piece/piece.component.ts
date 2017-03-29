@@ -11,7 +11,6 @@ import { Piece } from "./piece";
 export class PieceComponent implements OnInit {
 
   piece: Piece;
-  dragHandle = ':not(.none)';
 
   ngOnInit() {
     this.piece = Piece.randomPiece();
@@ -23,7 +22,6 @@ export class PieceComponent implements OnInit {
   }
 
   onDragStart(e: any) {
-    console.log(e);
     console.log('drag started');
   }
 

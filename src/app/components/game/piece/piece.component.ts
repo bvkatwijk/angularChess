@@ -20,4 +20,9 @@ export class PieceComponent implements OnInit {
     return PieceType[this.piece.type].toLowerCase() + ' ' + Color[this.piece.color].toLowerCase();
   }
 
+  onItemDrop(e: any) {
+    console.log(e.nativeEvent);
+    this.piece = e.dragData;
+  }
+
 }

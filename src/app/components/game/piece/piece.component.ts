@@ -9,8 +9,7 @@ import { Piece } from "./piece";
   styleUrls: ['./piece.component.css'],
   host: {
     '(dragstart)': 'onDragStart($event)',
-    '(dragleave)': 'onDragLeave($event)',
-    '(dragenter)': 'onDragEnter($event)',
+    '(dragover)': 'onDragOver($event)',
     '(drop)': 'onDrop($event)'
   }
 })
@@ -22,28 +21,17 @@ export class PieceComponent implements OnInit {
     this.piece = Piece.randomPiece();
   }
 
-  onItemDrop(e: any) {
-    console.log('PieceComponent onItemDrop');
-  }
-
   onDragStart(e: any) {
-    console.log('PieceComponent onDragStart');
+    e.dataTransfer.setData("type", this.piece.type);
+    e.dataTransfer.setData("color", this.piece.color);
   }
 
-  onDragEnter(e: any) {
-    console.log('PieceComponent onDragEnter');
+  onDragOver(e: any) {
+    e.preventDefault();
   }
 
-  onDragLeave(ev: any) {
-    console.log('PieceComponent onDragLeave');
-  }
-
-  onDrop(ev: any) {
-    console.log("PieceComponent onDrop");
-  }
-
-  removePiece() {
-    this.piece = new Piece(PieceType.NONE, Color.NONE);
+  onDrop(e: any) {
+    this.piece = new Piece(e.dataTransfer.getData("type"), e.dataTransfer.getData("color"));
   }
 
   canDrag() {

@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Piece } from "./piece.enum";
+import { PieceType } from "./piece-type.enum";
+import { Color } from "../player/color.enum";
+import { Piece } from "./piece";
 
 @Component({
   selector: 'app-piece',
   templateUrl: './piece.component.html',
   styleUrls: ['./piece.component.css']
 })
-export class PieceComponent {
+export class PieceComponent implements OnInit {
 
-  piece = this.randomPiece();
+  piece: Piece;
 
-  randomPiece() {
-    const pieces: Piece[] = [Piece.KING, Piece.QUEEN, Piece.ROOK, Piece.BISHOP, Piece.KNIGHT, Piece.PAWN, Piece.NONE];
-    return pieces[Math.floor(Math.random() * pieces.length)];
+  ngOnInit() {
+    this.piece = Piece.randomPiece();
   }
 
   pieceClass() {
-    return Piece[this.piece]
-      .toLowerCase();
+    return PieceType[this.piece.type].toLowerCase() + ' ' + Color[this.piece.color].toLowerCase();
   }
 
 }

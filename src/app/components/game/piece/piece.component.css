@@ -4,11 +4,18 @@
     background-image: url("https://img.clipartfest.com/65a1b01c6f0e594a57971afaf65a7d54_open-chess-pieces_2000-667.png");
     background-size: 600px;
     background-repeat: no-repeat;
-    background-position-y: -10px;
 }
 
 .none {
     background-image: none;
+}
+
+.white {
+    background-position-y: -10px;
+}
+
+.black {
+    background-position-y: -111px;
 }
 
 .king {

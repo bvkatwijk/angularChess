@@ -9,6 +9,7 @@ import { ContainerComponent } from './components/game/container/container.compon
 import { BoardComponent } from './components/game/board/board.component';
 import { TileComponent } from './components/game/tile/tile.component';
 import { PieceComponent } from './components/game/piece/piece.component';
+import { PlayerComponent } from './components/game/player/player.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PieceComponent } from './components/game/piece/piece.component';
     ContainerComponent,
     BoardComponent,
     TileComponent,
-    PieceComponent
+    PieceComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

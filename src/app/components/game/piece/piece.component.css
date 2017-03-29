@@ -1,0 +1,36 @@
+.piece {
+    width: 80px;
+    height: 80px;
+    background-image: url("https://img.clipartfest.com/65a1b01c6f0e594a57971afaf65a7d54_open-chess-pieces_2000-667.png");
+    background-size: 600px;
+    background-repeat: no-repeat;
+    background-position-y: -10px;
+}
+
+.none {
+    background-image: none;
+}
+
+.king {
+    background-position-x: -10px;
+}
+
+.queen {
+    background-position-x: -110px;
+}
+
+.bishop {
+    background-position-x: -210px;
+}
+
+.knight {
+    background-position-x: -310px;
+}
+
+.rook {
+    background-position-x: -410px;
+}
+
+.pawn {
+    background-position-x: -510px;
+}

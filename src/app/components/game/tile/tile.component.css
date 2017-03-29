@@ -5,14 +5,5 @@
     height: 100px;
     margin: 2px;
     overflow: hidden;
-}
-
-.piece {
-    margin: 10px;
-    width: 80px;
-    height: 80px;
-    background-image: url("https://img.clipartfest.com/65a1b01c6f0e594a57971afaf65a7d54_open-chess-pieces_2000-667.png");
-    background-position: -10px -10px;
-    background-size: 600px;
-    background-repeat: no-repeat;
+    padding: 10px;
 }

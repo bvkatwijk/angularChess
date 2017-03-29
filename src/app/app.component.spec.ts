@@ -1,3 +1,4 @@
+import { PieceComponent } from './components/game/piece/piece.component';
 import { ContainerComponent } from './components/game/container/container.component';
 import { TestBed, async } from '@angular/core/testing';
 
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         NavbarComponent,
         ContainerComponent,
         BoardComponent,
-        TileComponent
+        TileComponent,
+        PieceComponent
       ],
     }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);

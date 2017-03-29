@@ -1,3 +1,4 @@
+import { PieceComponent } from '../piece/piece.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BoardComponent } from './board.component';
@@ -11,7 +12,8 @@ describe('BoardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         BoardComponent,
-        TileComponent
+        TileComponent,
+        PieceComponent
       ]
     })
     .compileComponents();

@@ -17,4 +17,9 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  onItemDrop(e: any) {
+    console.log('board');
+    console.log(e);
+  }
+
 }

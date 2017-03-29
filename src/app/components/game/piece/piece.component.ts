@@ -16,13 +16,13 @@ export class PieceComponent implements OnInit {
     this.piece = Piece.randomPiece();
   }
 
-  pieceClass() {
-    return PieceType[this.piece.type].toLowerCase() + ' ' + Color[this.piece.color].toLowerCase();
+  onItemDrop(e: any) {
+    console.log(e.nativeEvent.srcElement.className);
+    this.piece = e.dragData;
   }
 
-  onItemDrop(e: any) {
-    console.log(e.nativeEvent);
-    this.piece = e.dragData;
+  removePiece() {
+    this.piece = new Piece(PieceType.NONE, Color.NONE);
   }
 
 }

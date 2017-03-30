@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Board } from "./board";
+import { Tile } from "../tile/tile";
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
+  host: {
+    '(dragstart)': 'onDragStart($event)',
+    '(dragend)': 'onDragEnd($event)',
+    '(drop)': 'onDrop($event)'
+  }
 })
 export class BoardComponent implements OnInit {
-  tiles: number[] = [];
+  tiles: Tile[] = [];
+  board: Board;
 
   constructor() {
     for(var i = 0; i < 64; i++ ) {
-      this.tiles.push(i);
+      this.tiles.push(new Tile(i));
     }
+    this.board = new Board(this.tiles);
   }
 
   ngOnInit() {
@@ -20,6 +29,20 @@ export class BoardComponent implements OnInit {
   onItemDrop(e: any) {
     console.log('board');
     console.log(e);
+  }
+
+  onDragStart(e: any) {
+    // e.dataTransfer.setData("type", this.piece.type);
+    // e.dataTransfer.setData("color", this.piece.color);
+  }
+
+  onDragEnd(e: any) {
+    // console.log(this.piece.type);
+  }
+
+  onDrop(e: any) {
+    console.log(e);
+    // this.piece = new Piece(e.dataTransfer.getData("type"), e.dataTransfer.getData("color"));
   }
 
 }

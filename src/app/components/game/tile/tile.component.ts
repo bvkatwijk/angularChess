@@ -1,4 +1,5 @@
-import { Input, Component,  OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
+import { Tile } from "./tile";
 
 const light = '#ffffff';
 const dark = '#666666';
@@ -6,18 +7,30 @@ const dark = '#666666';
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.css']
+  styleUrls: ['./tile.component.css'],
+  host: {
+    '(dragover)': 'onDragOver($event)',
+  }
 })
 export class TileComponent implements OnInit {
 
-  @Input() index: number;
+  @Input() tile: Tile;
 
   background_color: string;
-  
+
   constructor() { }
 
   ngOnInit() {
-    this.background_color = (Math.floor(this.index / 8) + this.index) % 2 == 0 ? light : dark;
+    this.tile = new Tile(this.tile.index);
+    this.background_color = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? light : dark;
+  }
+
+  /**
+   * Set as valid drop target
+   * @param e event
+   */
+  onDragOver(e: any) {
+    e.preventDefault();
   }
 
 }

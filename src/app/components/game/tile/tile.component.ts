@@ -1,3 +1,4 @@
+import { Piece } from '../piece/piece';
 import { Input, Component, OnInit } from '@angular/core';
 import { Tile } from "./tile";
 
@@ -21,7 +22,6 @@ export class TileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.tile = new Tile(this.tile.index);
     this.background_color = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? light : dark;
   }
 

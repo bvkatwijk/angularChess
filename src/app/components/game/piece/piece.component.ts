@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component,  OnInit } from '@angular/core';
 import { PieceType } from "./piece-type.enum";
 import { Color } from "../player/color.enum";
 import { Piece } from "./piece";
@@ -10,10 +10,8 @@ import { Piece } from "./piece";
 })
 export class PieceComponent implements OnInit {
 
-  piece: Piece;
+  @Input() piece: Piece;
 
-  ngOnInit() {
-    this.piece = Piece.randomPiece();
-  }
+  ngOnInit() { }
 
 }

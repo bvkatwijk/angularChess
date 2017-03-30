@@ -1,3 +1,4 @@
+import { Piece } from '../piece/piece';
 import { Component, OnInit } from '@angular/core';
 import { Board } from "./board";
 import { Tile } from "../tile/tile";
@@ -18,7 +19,7 @@ export class BoardComponent implements OnInit {
 
   constructor() {
     for(var i = 0; i < 64; i++ ) {
-      this.tiles.push(new Tile(i));
+      this.tiles.push(new Tile(i, Piece.randomPiece()));
     }
     this.board = new Board(this.tiles);
   }

@@ -1,41 +1,41 @@
-import { Piece } from '../piece/piece';
+import { PieceType } from '../piece/piece-type.enum';
+import { Color } from '../player/color.enum';
 import { Component, OnInit } from '@angular/core';
-import { Board } from "./board";
 import { Tile } from "../tile/tile";
+import { Piece } from '../piece/piece';
+import { Board } from "./board";
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
-  host: {
-    '(dragstart)': 'onDragStart($event)',
-    '(dragend)': 'onDragEnd($event)',
-    '(drop)': 'onDrop($event)'
-  }
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
+  tiles: Tile[] = [];
   board: Board;
 
   constructor() {
-    const tiles: Tile[] = [];
+    this.board = new Board(this.tiles);
+  }
+
+  ngOnInit() {
     for(var i = 0; i < 64; i++ ) {
-      tiles.push(new Tile(i, Piece.randomPiece()));
+      this.tiles.push(new Tile(i, Piece.randomPiece()));
     }
-    this.board = new Board(tiles);
   }
 
-  onDragStart(e: any) {
-    // e.dataTransfer.setData("type", this.piece.type);
-    // e.dataTransfer.setData("color", this.piece.color);
+  private dragged: Tile;
+
+  onDrag(event: any, tile: Tile) {
+    this.dragged = tile;
   }
 
-  onDragEnd(e: any) {
-    // console.log(this.piece.type);
-  }
+  onDrop(event: any, tile: Tile) {
+    //Copy Source to Target
+    this.board.tiles[tile.index].piece = this.board.tiles[this.dragged.index].piece;
 
-  onDrop(e: any) {
-    console.log(e);
-    // this.piece = new Piece(e.dataTransfer.getData("type"), e.dataTransfer.getData("color"));
+    //Clear Source
+    this.board.tiles[this.dragged.index].piece = new Piece(PieceType.NONE, Color.NONE);
   }
 
 }

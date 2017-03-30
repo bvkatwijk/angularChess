@@ -1,5 +1,5 @@
 import { Piece } from '../piece/piece';
-import { Input, Component, OnInit } from '@angular/core';
+import { HostListener, Input,  Output,  Component,  OnInit,  EventEmitter } from '@angular/core';
 import { Tile } from "./tile";
 
 @Component({
@@ -8,11 +8,15 @@ import { Tile } from "./tile";
   styleUrls: ['./tile.component.css'],
   host: {
     '(dragover)': 'onDragOver($event)',
+    // '(drop)': 'onDrop($event)'
   }
 })
 export class TileComponent implements OnInit {
 
   @Input() tile: Tile;
+
+  @Output() drag: EventEmitter<any>= new EventEmitter();
+  @Output() drop: EventEmitter<any> = new EventEmitter();
 
   background_color: string;
 

@@ -1,3 +1,6 @@
+import { Color } from '../player/color.enum';
+import { PieceType } from '../piece/piece-type.enum';
+import { Piece } from '../piece/piece';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PieceComponent } from '../piece/piece.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -22,7 +25,7 @@ describe('TileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TileComponent);
     component = fixture.componentInstance;
-    component.tile = new Tile(3); 
+    component.tile = new Tile(3, new Piece(PieceType.KING, Color.WHITE));
     fixture.detectChanges();
   });
 

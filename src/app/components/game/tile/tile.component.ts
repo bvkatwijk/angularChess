@@ -8,22 +8,18 @@ import { Tile } from "./tile";
   styleUrls: ['./tile.component.css'],
   host: {
     '(dragover)': 'onDragOver($event)',
-    // '(drop)': 'onDrop($event)'
   }
 })
 export class TileComponent implements OnInit {
 
   @Input() tile: Tile;
 
-  @Output() drag: EventEmitter<any>= new EventEmitter();
-  @Output() drop: EventEmitter<any> = new EventEmitter();
-
-  background_color: string;
+  classes: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.background_color = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? 'light' : 'dark';
+    this.classes = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? 'light' : 'dark';
   }
 
   /**

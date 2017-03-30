@@ -1,4 +1,4 @@
-import { Input, Component,  OnInit } from '@angular/core';
+import { HostListener, Input,  Component,   OnInit } from '@angular/core';
 import { PieceType } from "./piece-type.enum";
 import { Color } from "../player/color.enum";
 import { Piece } from "./piece";
@@ -13,5 +13,10 @@ export class PieceComponent implements OnInit {
   @Input() piece: Piece;
 
   ngOnInit() { }
+
+  @HostListener('dragstart')
+  onDrag(event: any) {
+    console.log('PieceComponent onDrag!');
+  }
 
 }

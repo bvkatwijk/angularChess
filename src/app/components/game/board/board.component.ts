@@ -19,7 +19,7 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-    for(var i = 0; i < 64; i++ ) {
+    for (var i = 0; i < 64; i++) {
       this.tiles.push(new Tile(i, Piece.randomPiece()));
     }
   }
@@ -31,11 +31,13 @@ export class BoardComponent implements OnInit {
   }
 
   onDrop(event: any, tile: Tile) {
-    //Copy Source to Target
-    this.board.tiles[tile.index].piece = this.board.tiles[this.dragged.index].piece;
+    if (this.dragged != tile) {
+      //Copy Source to Target
+      this.board.tiles[tile.index].piece = this.board.tiles[this.dragged.index].piece;
 
-    //Clear Source
-    this.board.tiles[this.dragged.index].piece = new Piece(PieceType.NONE, Color.NONE);
+      //Clear Source
+      this.board.tiles[this.dragged.index].piece = new Piece(PieceType.NONE, Color.NONE);
+    }
   }
 
 }

@@ -13,23 +13,15 @@ import { Tile } from "../tile/tile";
     '(drop)': 'onDrop($event)'
   }
 })
-export class BoardComponent implements OnInit {
-  tiles: Tile[] = [];
+export class BoardComponent {
   board: Board;
 
   constructor() {
+    const tiles: Tile[] = [];
     for(var i = 0; i < 64; i++ ) {
-      this.tiles.push(new Tile(i, Piece.randomPiece()));
+      tiles.push(new Tile(i, Piece.randomPiece()));
     }
-    this.board = new Board(this.tiles);
-  }
-
-  ngOnInit() {
-  }
-
-  onItemDrop(e: any) {
-    console.log('board');
-    console.log(e);
+    this.board = new Board(tiles);
   }
 
   onDragStart(e: any) {

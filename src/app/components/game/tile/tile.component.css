@@ -7,3 +7,11 @@
     overflow: hidden;
     padding: 10px;
 }
+
+.dark {
+    background-color: #666666;
+}
+
+.light {
+    background-color: #ffffff;
+}

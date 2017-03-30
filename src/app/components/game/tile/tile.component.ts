@@ -2,9 +2,6 @@ import { Piece } from '../piece/piece';
 import { Input, Component, OnInit } from '@angular/core';
 import { Tile } from "./tile";
 
-const light = '#ffffff';
-const dark = '#666666';
-
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
@@ -22,7 +19,7 @@ export class TileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.background_color = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? light : dark;
+    this.background_color = (Math.floor(this.tile.index / 8) + this.tile.index) % 2 == 0 ? 'light' : 'dark';
   }
 
   /**
